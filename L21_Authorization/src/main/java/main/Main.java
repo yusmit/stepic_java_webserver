@@ -39,12 +39,13 @@ public class Main {
         resource_handler.setResourceBase("public_html");
 
         HandlerList handlers = new HandlerList();
-        handlers.setHandlers(new Handler[]{resource_handler, context});
+        // handlers.setHandlers(new Handler[]{resource_handler, context});
         handlers.setHandlers(new Handler[]{resource_handler, context2});
         Server server = new Server(8080);
         server.setHandler(handlers);
 
         server.start();
+        System.out.println("Server started");
         server.join();
     }
 }
