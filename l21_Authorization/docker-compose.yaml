@@ -1,5 +1,11 @@
 version: "3.7"
 services:
+  builder:
+    image: maven:3-jdk-8-slim
+    volumes:
+      - ./:/project
+    command: sh -c "mvn compile assembly:single -f /project"
+    
   frontend:
     image: jetty
     volumes:
