@@ -1,19 +1,15 @@
 version: "3.7"
 services:
-  builder:
-    image: maven:3-jdk-8-slim
-    volumes:
-      - ./:/project
-    command: sh -c "mvn compile assembly:single -f /project"
-    
+  # builder:
+  #   image: maven:3-jdk-8-slim
+  #   volumes:
+  #     - ./:/project
+  #   command: sh -c "mvn compile assembly:single -f /project"
   frontend:
-    image: jetty
+    image: jetty:9.3
     volumes:
       - ./:/app_jetty
     ports:
       - 8080:8080
-      - 443:443
+      # - 443:443
     command: sh -c "java -jar /app_jetty/server.jar"
-
-
-
