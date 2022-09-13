@@ -72,13 +72,13 @@ io.netty
 
 ```java
 public class ModifiedDemo {
-    
+
     public static void visibleEverywhere() {}
-    
+
     protected static void inSubclasses() {}
-    
+
     static void inPackage() {}
-    
+
     private void inClass() {}
 }
 ```
@@ -120,9 +120,9 @@ public final class Integer {
 package java.lang;
 
 public final class Integer {
-    
+
     private final int value;
-    
+
     public Integer(int value) {
         this.value = value;
     }
@@ -145,11 +145,11 @@ public final class Math {
 package java.math;
 
 public class BigInteger {
-    
+
     public BigInteger(String val) {
         this(val, 10);  // Вызов другого конструктора
     }
-    
+
     public BigInteger(String val, int radix) {}
 }
 ```
@@ -160,11 +160,11 @@ public class BigInteger {
 package java.io;
 
 public class FileInputStream {
-    
+
     protected void finalize() {
         // Auto cleanup
     }
-    
+
     public void close() {}
 }
 ```
@@ -175,9 +175,9 @@ public class FileInputStream {
 package java.lang;
 
 public final class Integer {
-    
+
     private final int value;
-    
+
     public int intValue() {
         return value;
     }
@@ -194,11 +194,11 @@ public final class Integer {
 package java.lang;
 
 public final class String {
-    
+
     public int indexOf(int ch) {
         return indexOf(ch, 0);
     }
-    
+
     public int indexOf(int ch, int fromIndex) {}
 }
 ```
@@ -209,9 +209,9 @@ public final class String {
 package java.lang;
 
 public final class Integer {
-    
+
     public static final int MIN_VALUE = 0x80000000;  // Константа
-    
+
     public static int rotateRight(int i, int distance) {
         return (i >>> distance) | (i << -distance);
     }
@@ -224,13 +224,13 @@ public final class Integer {
 package java.util;
 
 public class ArrayList<E> {
-    
+
     Object[] elementData;
-    
+
     public Iterator<E> iterator() {
         return new Itr();
     }
-    
+
     private class Itr implements Iterator<E> {
         int cursor;
     }
@@ -266,7 +266,7 @@ public enum DayOfWeek {
     FRIDAY,
     SATURDAY,
     SUNDAY
-    
+
     // Дальше можно объявлять поля и методы как в обычном классе
     // Можно создать конструктор и передавать аргументы в элементы выше
 }
@@ -290,10 +290,10 @@ for (DayOfWeek day : DayOfWeek.values()) {
 package java.lang;
 
 public final class Character {
-    
+
     @Deprecated
     public static boolean isJavaLetter(char c) {}
-    
+
     @SuppressWarnings("unchecked")
     public static final Class<Character> TYPE = (Class<Character>) Class.getPrivitiveClass("char");
 }
@@ -310,7 +310,7 @@ package java.lang;
 
 public final class BigDecimal extends Number {
     public int intValue() {}
-    
+
     // No shortValue() method,
     // it's inherited from Number
 }
@@ -326,7 +326,7 @@ package java.lang;
 public final class StringBuilder extends AbstractStringBuilder {
     @Override
     public StringBuilder append(String str) {}
-    
+
     // Base method in AbstractStringBuilder:
     // AbstractStringBuilder append(String str)
 }
@@ -345,7 +345,7 @@ public final class StringBuilder extends AbstractStringBuilder {
     public StringBuilder() {
         super(16);
     }
-    
+
     @Override
     public StringBuilder append(String str) {
         super.append(str);  // Вызов оригинального метода
@@ -377,17 +377,17 @@ public final class String /* extends object */ {}
 
 ```java
 public abstract class Shape {
-    
+
     private final Color color;
-    
+
     public Shape(Color color) {
         this.color = color;
     }
-    
+
     public Color getColor() {
         return color;
     }
-    
+
     public double getArea() {
         return Double.NaN;
     }
@@ -400,7 +400,7 @@ public abstract class Shape {
 ```java
 public abstract class Shape {
     ...
-    
+
     public abstract double getArea();
 ```
 
@@ -422,12 +422,12 @@ package org.stepic.java.orders;
 import java.time.LocalDate;
 
 public interface OrderService {
-    
+
     Order[] getOrdersByClient(long clientId);
-    
+
     // Добавление этого метода сломает компиляцию в унаследованных классах, где не будет его реализации
     // Order[] getOrdersByClient(long clientId, LocalDate date);
-    
+
     // Будет использоваться для классов наследников, где не переопределен
     default Order[] getOrdersByClient(long clientId, LocalDate date) {
         Order[] allOrders = getOrdersByClient(clientId);
@@ -442,7 +442,7 @@ public interface OrderService {
 public class OrderServiceImpl
         extends ServiceBase
         implements OrderService {
-    
+
     public Order[] getOrdersByClient(long clientId) {
         ...
     }
@@ -471,12 +471,12 @@ public interface Comparator<T> {
 package org.stepic.java.timer;
 
 public class Timer {
-    
+
     public long measureTime(Runnable runnable) {
         long startTime = Sytem.currentTimeMillis();
         runnable.run();
         return System.currentTimeMillis() - startTime();
-    
+
 }
 ```
 
@@ -488,18 +488,18 @@ package org.stepic.java.timer;
 import java.math.BigDecimal;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         Timer timer = new Timer();
         long time = timer.measureTime(new BigDecimalPower());
         System.out.println(time);
     }
-    
+
     private static class BigDecimalPower implements Runnable {
-        
+
         @Override
         public void run() { new BigDecimal("1234567").pow(10000); }
-        
+
     }
 }
 ```
@@ -508,13 +508,13 @@ public class Main {
 
 ```java
 public class Main {
-    
+
     public static void main(String[] args) {
         Timer timer = new Timer();
         long time = timer.measureTime(Main::bigDecimalPower);
         System.out.println(time);
     }
-    
+
     private static void bigDecimalPower {
         new BigDecimal("1234567").pow(10000);
     }
