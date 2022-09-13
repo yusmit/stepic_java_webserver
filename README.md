@@ -1,9 +1,5 @@
 # Java Basics from Stepik
 
-Java - Basic Course - Stepik MOOC
-
-## TOC
-
 - [x] [1 Введение в Java](notes/ch1.md)
   - [x] [1.2. Первый контакт](notes/ch1.md#12-Первый-контакт)
 - [x] [2 Базовый синтаксис Java](notes/ch2.md)
@@ -26,6 +22,6 @@ Java - Basic Course - Stepik MOOC
   - [x] [5.2. - Потоки байт](notes/ch5.md#52-потоки-байт)
   - [x] [5.3. - Потоки символов](notes/ch5.md#53-потоки-символов)
   - [x] [5.4. - Продвинутые возможности](notes/ch5.md#54-продвинутые-возможности)
-- [x] ch 6 - Generics, collections, streams
+- [x]  [6 - Generics, collections, streams](notes/ch6.md)
 
- [1]: https://stepik.org/course/Java-%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BA%D1%83%D1%80%D1%81-187
+ [Cсылка на курс](https://stepik.org/course/Java-%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BA%D1%83%D1%80%D1%81-187)

@@ -16,21 +16,21 @@ public interface Calculator {
 
 ### Примеры исключений
 
-```
+```java
 Object nullRef = null;
 
 // java.lang.NullPointerException
 nullRef.toString();
 ```
 
-```
+```java
 int[] array = {1, 2, 3};
 
 // java.lang.ArrayIndexOutOfBoundsException
 array[10];
 ```
 
-```
+```java
 // java.io.FileNotFoundException
 new FileInputStream("not_existing_file");
 ```
@@ -39,7 +39,7 @@ new FileInputStream("not_existing_file");
 
 Все исключения в Java наследуются от `java.lang.Throwable`
 
-```
+```java
 throw new IllegalStateException("Invalid user.");
 ```
 
@@ -100,7 +100,7 @@ public class CalculatorException extends RuntimeException {
 
 ### Базовый пример
 
-```
+```java
 for (;;) {
     System.out.print("Enter expression: ");
     String expression = readUserInput();
@@ -119,7 +119,7 @@ for (;;) {
 
 ### Перехват нескольких исключений
 
-```
+```java
 try {
     // ...
 } catch (FirstException e) {
@@ -131,7 +131,7 @@ try {
 
 или в одном блоке `catch`
 
-```
+```java
 try {
     // ...
 } catch (FirstException | SecondException e) {
@@ -141,7 +141,7 @@ try {
 
 ### Блок `finally`
 
-```
+```java
 InputStream is = new FileInputStream("a.txt");
 try {
     readFromInputStream(is);
@@ -154,7 +154,7 @@ try {
 
 В примере выше, если исключение будет брошено внутри `try` и внутри `finally`, то оригинальное исключение будет потеряно. Для решения этой проблемы используется следующий паттерн
 
-```
+```java
 InputStream is = new FileInputStream("a.txt");
 try {
     readFromInputStream(is);
@@ -169,7 +169,7 @@ try {
 
 ### `try` с ресурсами
 
-```
+```java
 try (InputStream is = new FileInputStream("a.txt")) {
     readFromInputStream(is);
 }
@@ -181,7 +181,7 @@ try (InputStream is = new FileInputStream("a.txt")) {
 
 #### Идея за реализацией `try` с ресурсами
 
-```
+```java
 InputStream is = new FileInputStream("a.txt");
 try {
     readFromInputStream(is);
@@ -200,7 +200,7 @@ is.close();
 
 **Ресурс** - любой объект реализующий `java.lang.AutoCloseable`.
 
-```
+```java
 package java.lang;
 
 public static AutoClosable {
@@ -210,7 +210,7 @@ public static AutoClosable {
 
 ### Обработка исключения
 
-```
+```java
 try {
     Double.parseDouble(...);
 } catch (NumberFormatException e) {
@@ -222,7 +222,7 @@ try {
 
 ### Плохой пример
 
-```
+```java
 String string;
 try {
     string = object.toString();
@@ -234,7 +234,7 @@ try {
 
 ### Хороший пример
 
-```
+```java
 String string = object == null ? "null" : object.toString();
 System.out.println(string);
 ```
@@ -245,7 +245,7 @@ System.out.println(string);
 
 ### Пример
 
-```
+```java
 package org.stepik.java.logging;
 
 import java.util.logging.*;
@@ -258,7 +258,7 @@ public class LogDemo {
 
 ### Логирование сообщений
 
-```
+```java
 LOGGER.log(Level.INFO, "I'm logging");
 
 // SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST
@@ -298,7 +298,7 @@ LOGGER.log(Level.SEVERE, "Unexpected exception", e);
 
 ### Полный пример
 
-```
+```java
 Logger logger = Logger.getLogger(Stepik.class.getName());
 Handler handler;
 try {

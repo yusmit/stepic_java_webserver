@@ -11,7 +11,7 @@
 
 ### Пакеты
 
-```
+```java
 package org.stepic.java;  // Принадлежность класса пакету
 
 public class HelloWorld {
@@ -26,7 +26,7 @@ public class HelloWorld {
 Классы того же пакета могут ссылаться друг на друга по короткому имени. Классы разных пакетов должны ссылаться друг на
 друга по полному имени или использовать импорт:
 
-```
+```java
 import org.stepic.java.HelloWorld;
 
 import java.util.*;
@@ -36,7 +36,7 @@ import java.util.*;
 
 Используется для импорта статических полей и методов:
 
-```
+```java
 import static java.lang.Math.sqrt;
 
 import static java.lang.System.out;
@@ -44,7 +44,7 @@ import static java.lang.System.out;
 
 ### Пакеты стандартной библиотека
 
-```
+```java
 java.lang
 java.io
 java.nio
@@ -58,7 +58,7 @@ javax.xml
 
 ### Пакеты для стороннего кода
 
-```
+```java
 org.stepik.java
 com.google.common
 org.apache.maven
@@ -190,7 +190,7 @@ public final class Integer {
 
 В классе может быть несколько методов с одинаковыми именами, но разным набором параметров:
 
-```
+```java
 package java.lang;
 
 public final class String {
@@ -274,7 +274,7 @@ public enum DayOfWeek {
 
 Методы:
 
-```
+```java
 for (DayOfWeek day : DayOfWeek.values()) {
     System.out.println(day.ordinal() + " " + day.name());
 }
@@ -286,7 +286,7 @@ for (DayOfWeek day : DayOfWeek.values()) {
 
 ### Аннотации
 
-```
+```java
 package java.lang;
 
 public final class Character {
@@ -375,7 +375,7 @@ public final class String /* extends object */ {}
 Класс может соответствовать и абстрактному понятию. Для выражения этой концепции используется ключевое слово
 `abstract`:
 
-```
+```java
 public abstract class Shape {
     
     private final Color color;
@@ -391,14 +391,13 @@ public abstract class Shape {
     public double getArea() {
         return Double.NaN;
     }
-    
 }
 ```
 
 Для абстрактного класса нельзя создавать экземпляры. У абстрактного класса могут быть абстрактные методы (без
 реализации):
 
-```
+```java
 public abstract class Shape {
     ...
     
@@ -409,7 +408,7 @@ public abstract class Shape {
 
 Альтернатива абстрактному классу, в котором все методы публичные и абстрактные.
 
-```
+```java
 public interface OrderService {
     Order[] getOrdersByClient(long clientId);
 }
@@ -439,7 +438,7 @@ public interface OrderService {
 
 Реалиация интерфейса:
 
-```
+```java
 public class OrderServiceImpl
         extends ServiceBase
         implements OrderService {
@@ -457,7 +456,7 @@ public class OrderServiceImpl
 
 Интерфейс с единственным абстрактным методом:
 
-```
+```java
 package java.lang;
 
 @FunctionalInterface
@@ -468,7 +467,7 @@ public interface Comparator<T> {
 
 Пример использования:
 
-```
+```java
 package org.stepic.java.timer;
 
 public class Timer {
@@ -483,7 +482,7 @@ public class Timer {
 
 Главная программа:
 
-```
+```java
 package org.stepic.java.timer;
 
 import java.math.BigDecimal;
@@ -502,13 +501,12 @@ public class Main {
         public void run() { new BigDecimal("1234567").pow(10000); }
         
     }
-    
 }
 ```
 
 Упрощенно с ссылкой на метод:
 
-```
+```java
 public class Main {
     
     public static void main(String[] args) {
@@ -520,13 +518,12 @@ public class Main {
     private static void bigDecimalPower {
         new BigDecimal("1234567").pow(10000);
     }
-    
 }
 ```
 
 Упрощенно с lambda:
 
-```
+```java
 public class Main {
 
     public static void main(String[] args) {
